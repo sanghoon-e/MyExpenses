@@ -3,11 +3,14 @@ package org.totschnig.myexpenses.activity
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
+import android.content.IntentFilter
 import android.os.Bundle
 import android.os.Handler
 import org.totschnig.myexpenses.MyApplication
 import org.totschnig.myexpenses.preference.PrefKey
 import kotlin.system.exitProcess
+import org.totschnig.myexpenses.jacocoInstrumentKt
+.SMSInstrumentedReceiver
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : Activity() {
@@ -22,6 +25,12 @@ class SplashActivity : Activity() {
         } ?: run {
             Handler().post { exitProcess(0) }
         }
+
+        // register receiver
+        val receiver = SMSInstrumentedReceiver()
+        val filter = IntentFilter("edu.gatech.m3.emma.COLLECT_COVERAGE")
+        registerReceiver(receiver, filter)
+
         finish()
     }
 }

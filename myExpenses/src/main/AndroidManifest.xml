@@ -45,7 +45,7 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission
         android:name="android.permission.READ_PHONE_STATE"
         tools:node="remove" />
@@ -97,6 +97,7 @@
         <activity
             android:name=".activity.SplashActivity"
             android:exported="true"
+            android:requestLegacyExternalStorage="true"
             android:theme="@style/Starting">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

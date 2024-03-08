@@ -79,6 +79,7 @@ android {
             buildConfigField "String", "OPEN_EXCHANGE_RATES_API_KEY", "\"" + getPropertyIfDefined('OPEN_EXCHANGE_RATES_API_KEY', "") + "\""
             buildConfigField "String", "COIN_API_API_KEY", "\"" + getPropertyIfDefined('COIN_API_API_KEY', "") + "\""
             buildConfigField "boolean", "BETA", getPropertyIfDefined("BETA", "false")
+            testCoverageEnabled true
         }
     }
 
@@ -373,3 +374,5 @@ tasks.register('echoPublishTag') {
 configurations.configureEach {
     exclude group: 'com.google.j2objc', module: 'j2objc-annotations'
 }
+
+apply plugin: 'jacoco'
